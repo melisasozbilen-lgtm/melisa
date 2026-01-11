@@ -30,10 +30,15 @@ export function CelebrityCard({ id, name, imageUrl, knownFor, nationality }: Cel
       <div className="glass-card rounded-xl overflow-hidden card-hover">
         <div className="relative aspect-[3/4] overflow-hidden">
           <img
-            src={imageUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400'}
-            alt={name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
+  src={imageUrl || 'https://via.placeholder.com/400x600?text=Celebrity'}
+  alt={name}
+  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+  onError={(e) => {
+    e.currentTarget.src =
+      'https://via.placeholder.com/400x600?text=Celebrity';
+  }}
+/>
+
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
           
           {user && (
